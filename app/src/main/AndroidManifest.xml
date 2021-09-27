@@ -11,6 +11,7 @@
         android:theme="@style/Theme.MobileAppDevProject">
         <activity
             android:name=".BayarTiket"
+            android:name=".HistoryMenu"
             android:exported="true" />
         <activity
             android:name=".Home_Menu"
@@ -27,6 +28,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
