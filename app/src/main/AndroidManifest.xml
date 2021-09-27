@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAppDevProject">
+
         <activity
-            android:name=".BayarTiket"
+            android:name=".PosterScreen"
+            android:exported="true" />
+        <activity
             android:name=".HistoryMenu"
             android:exported="true" />
         <activity
