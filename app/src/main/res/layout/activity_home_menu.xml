@@ -56,7 +56,7 @@
         app:srcCompat="@drawable/for_you" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/BtnHindia"
         android:layout_width="283dp"
         android:layout_height="220dp"
         android:background="#FFFFFF"
