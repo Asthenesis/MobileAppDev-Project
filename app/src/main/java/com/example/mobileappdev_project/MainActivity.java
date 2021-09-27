@@ -50,5 +50,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ImageButton BtnHistory = (ImageButton) findViewById(R.id.BtnHistory);
+        BtnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HistoryMenu frag1 = new HistoryMenu();
+                frag1.setArguments(getIntent().getExtras());
+
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+
+                ft.add(R.id.frame1, frag1);
+                ft.replace(R.id.frame1, frag1);
+                ft.commit();
+
+            }
+        });
+
     }
 }
