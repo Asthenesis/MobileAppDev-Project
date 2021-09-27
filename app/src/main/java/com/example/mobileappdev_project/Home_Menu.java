@@ -15,9 +15,9 @@ public class Home_Menu extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_home_menu,container,false);
+        return inflater.inflate(R.layout.activity_home_menu,container,false);
 
-        return v;
+
     }
 
 }

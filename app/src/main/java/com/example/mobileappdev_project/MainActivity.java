@@ -18,23 +18,37 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         ImageButton BtnHome = (ImageButton) findViewById(R.id.BtnHome);
-       BtnHome.setOnClickListener(new View.OnClickListener() {
+        BtnHome.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-            Home_Menu frag1 = new Home_Menu();
-            frag1.setArguments(getIntent().getExtras());
+                Home_Menu frag1 = new Home_Menu();
+                frag1.setArguments(getIntent().getExtras());
 
-               FragmentManager fm = getSupportFragmentManager();
-               FragmentTransaction ft =fm.beginTransaction();
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft =fm.beginTransaction();
 
-               ft.add(R.id.frame1,frag1);
-               ft.replace(R.id.frame1,frag1);
-               ft.commit();
-           }
+                ft.add(R.id.frame1,frag1);
+                ft.replace(R.id.frame1,frag1);
+                ft.commit();
+            }
        });
+        ImageButton BtnSearch = (ImageButton) findViewById(R.id.BtnSearch);
+        BtnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SearchMenu frag1 = new SearchMenu();
+                frag1.setArguments(getIntent().getExtras());
+
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+
+                ft.add(R.id.frame1, frag1);
+                ft.replace(R.id.frame1, frag1);
+                ft.commit();
 
 
-
+            }
+        });
 
     }
 }
