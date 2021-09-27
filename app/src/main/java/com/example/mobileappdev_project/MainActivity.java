@@ -17,6 +17,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
+
+        Home_Menu frag1 = new Home_Menu();
+        frag1.setArguments(getIntent().getExtras());
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft =fm.beginTransaction();
+
+        ft.add(R.id.frame1,frag1);
+        ft.replace(R.id.frame1,frag1);
+        ft.commit();
+
+
         ImageButton BtnHome = (ImageButton) findViewById(R.id.BtnHome);
         BtnHome.setOnClickListener(new View.OnClickListener() {
            @Override
