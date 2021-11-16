@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAppDevProject">
         <activity
+            android:name=".Pembayaran"
+            android:exported="true" />
+        <activity
+            android:name=".FAQ"
+            android:exported="true" />
+        <activity
+            android:name=".EditPembayaran"
+            android:exported="true" />
+        <activity
+            android:name=".EditProfile"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
