@@ -15,7 +15,7 @@
             android:name=".WelcomeActivity"
             android:exported="true" />
         <activity
-            android:name=".LandingPage"
+            android:name=".Profile"
             android:exported="true" />
         <activity
             android:name=".Pembayaran"
@@ -48,7 +48,7 @@
             android:name=".SearchMenu"
             android:exported="true" />
         <activity
-            android:name=".Profile"
+            android:name=".LandingPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
