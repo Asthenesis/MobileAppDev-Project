@@ -10,5 +10,6 @@ public class Pembayaran extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pembayaran);
+        getSupportActionBar().hide();
     }
 }
