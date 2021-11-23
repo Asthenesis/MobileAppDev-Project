@@ -64,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Edit Profil"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageButton7"
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="@+id/imageButton7"
@@ -75,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="FAQ"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageButton9"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="@+id/imageButton9"
@@ -112,6 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Edit Pembayaran"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageButton8"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="@+id/imageButton8"
@@ -142,5 +145,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView11"
         app:layout_constraintVertical_bias="0.201" />
+
+    <ImageButton
+        android:id="@+id/btnKembali"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:tint="#2B2A2A"
+        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.592"
+        app:srcCompat="@drawable/back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

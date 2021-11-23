@@ -89,7 +89,7 @@
         app:srcCompat="@drawable/rectangle_white" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/txtPassword"
         android:layout_width="259dp"
         android:layout_height="47dp"
         android:ems="10"
@@ -103,11 +103,11 @@
         app:layout_constraintVertical_bias="0.546" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/txtUser"
         android:layout_width="263dp"
         android:layout_height="45dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Username"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +117,7 @@
         app:layout_constraintVertical_bias="0.317" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/txtEmail"
         android:layout_width="262dp"
         android:layout_height="47dp"
         android:ems="10"
