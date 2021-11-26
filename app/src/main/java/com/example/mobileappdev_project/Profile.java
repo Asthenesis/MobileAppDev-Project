@@ -15,13 +15,13 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         getSupportActionBar().hide();
 
-        ImageButton btn = (ImageButton)findViewById(R.id.btnKembali);
-        btn.setOnClickListener(new View.OnClickListener() {
+        ImageButton kembali = (ImageButton)findViewById(R.id.KembaliProfile);
+
+        kembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Profile.this, MainActivity.class));
             }
         });
-
     }
 }

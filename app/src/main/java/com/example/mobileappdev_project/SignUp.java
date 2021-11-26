@@ -32,7 +32,7 @@ import java.util.Map;
 public class SignUp extends AppCompatActivity {
 EditText edtUser,edtPassword,edtEmail;
 String url_add_user ="http://lockyourticket.000webhostapp.com/addUser.php";
-String email,nama,password;
+String email,username,password;
 
 
     @Override
@@ -52,7 +52,7 @@ String email,nama,password;
             public void onClick(View v) {
                 startActivity(new Intent(SignUp.this, WelcomeActivity.class));
                 email = edtEmail.getText().toString();
-                nama = edtUser.getText().toString();
+                username = edtUser.getText().toString();
                 password = edtPassword.getText().toString();
                 RequestQueue queue = Volley.newRequestQueue(SignUp.this);
 
@@ -63,10 +63,10 @@ String email,nama,password;
                             JSONObject jObj = new JSONObject(response);
                             int sukses = jObj.getInt("success");
                             if (sukses == 1) {
-                                Toast.makeText(SignUp.this, "Data Mahasiswa berhasil disimpan", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUp.this, "User Berhasil Registrasi", Toast.LENGTH_SHORT).show();
                                 finish();
                             } else {
-                                Toast.makeText(SignUp.this, "Data Mahasiswa gagal disimpan", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUp.this, "Gagal Registrasi, silahkan coba lagi", Toast.LENGTH_SHORT).show();
                             }
                            // progressBar.setVisibility(View.GONE);
                         } catch (Exception ex) {
@@ -85,7 +85,8 @@ String email,nama,password;
                     @Override
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<>();
-                        params.put("Nama", nama);
+                        params.put("username", username);
+                        params.put("password",password);
                         params.put("email", email);
                         return params;
                     }
