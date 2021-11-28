@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="33dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Form Login"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:hint="Username"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/editText" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_below="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_marginTop="10dp"
+        android:id="@+id/editText2" />
+
+    <Button
+        android:id="@+id/yukdaftar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_marginTop="14dp"
+        android:background="@color/black"
+        android:hint="Sign In"
+        android:textColorHint="#fff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/yukdaftar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:text="You need account ? Sign up."
+        android:textAlignment="center" />
+
+
+</RelativeLayout>

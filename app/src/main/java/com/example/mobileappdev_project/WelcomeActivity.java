@@ -40,7 +40,7 @@ public class WelcomeActivity extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, LoginActivity2.class));
             }
         });
 
