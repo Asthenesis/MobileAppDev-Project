@@ -1,9 +1,7 @@
 package com.example.mobileappdev_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -13,6 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -50,6 +55,7 @@ public class CustomMaps extends AppCompatActivity implements OnMapReadyCallback 
             Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_LONG).show();
         }
 
+
         mylocation = findViewById(R.id.btnMyLocation);
         mylocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,4 +82,5 @@ public class CustomMaps extends AppCompatActivity implements OnMapReadyCallback 
             }
         });
     }
+
 }
