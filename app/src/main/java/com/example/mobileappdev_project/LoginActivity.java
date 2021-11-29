@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText edtEmail, edtPassword;
     private Button nexthome;
-    final String URL_Login = "http://lockyourticket.000webhostapp.com/SignIn.php";
+    final String URL_Login = "http://lockyourticket.000webhostapp.com/Login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
