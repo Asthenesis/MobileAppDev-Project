@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAppDevProject">
         <activity
+            android:name=".WebView"
+            android:exported="false" />
+        <activity
             android:name=".SignUp"
             android:exported="true" />
         <activity
