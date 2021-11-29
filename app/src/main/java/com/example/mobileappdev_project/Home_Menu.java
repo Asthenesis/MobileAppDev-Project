@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 
 public class Home_Menu extends Fragment {
     private ImageButton BtnHindia;
+    private ImageButton btnLokasi;
 
     @Nullable
     @Override
@@ -28,6 +29,17 @@ public class Home_Menu extends Fragment {
                 startActivity(i);
             }
         });
+
+        btnLokasi = v.findViewById(R.id.btnLokasi);
+        btnLokasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),CustomMaps.class);
+                startActivity(i);
+            }
+        });
+
+
 
 
 
