@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAppDevProject">
         <activity
+            android:name=".SwipePembayaran1"
+            android:exported="true" />
+        <activity
             android:name=".CustomMaps"
             android:exported="true" />
         <!--
