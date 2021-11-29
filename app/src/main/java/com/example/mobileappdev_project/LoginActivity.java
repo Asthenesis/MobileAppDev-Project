@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText edtEmail, edtPassword;
     private Button nexthome;
-    final String URL_Login = "http://lockyourticket.000webhostapp.com/SignIn.php";
+    final String URL_Login = "http://lockyourticket.000webhostapp.com/Login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String u_email = edtEmail.getText().toString().trim();
-                String u_pass = edtPassword.getText().toString().trim();
+                String u_email = edtEmail.getText().toString();
+                String u_pass = edtPassword.getText().toString();
 
                 if (!u_email.isEmpty() || !u_pass.isEmpty()) {
                     SignIn(u_email, u_pass);
