@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileAppDevProject">
         <activity
+            android:name=".WebViewIG"
+            android:exported="false" />
+        <activity
             android:name=".CustomMaps"
             android:exported="true" />
         <!--

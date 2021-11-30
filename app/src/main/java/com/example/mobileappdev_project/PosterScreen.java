@@ -20,9 +20,16 @@ public class PosterScreen extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PosterScreen.this, Pembayaran.class));
+                startActivity(new Intent(PosterScreen.this, EditPembayaran.class));
             }
         });
 
+       /* ImageButton ig = (ImageButton) findViewById(R.id.instagram);
+        ig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PosterScreen.this,WebViewIG.class));
+            }
+        });*/
     }
 }
