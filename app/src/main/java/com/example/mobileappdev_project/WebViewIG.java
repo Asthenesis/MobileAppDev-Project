@@ -12,7 +12,9 @@ public class WebViewIG extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view_ig);
 
-        WebView webig = (WebView) findViewById(R.id.webinstagram);
-        webig.loadUrl("https://www.instagram.com/wordfangs/");
+        WebView view = (WebView) findViewById(R.id.webinstagram);
+        view.getSettings().setJavaScriptEnabled(true);
+        view.getSettings().setDomStorageEnabled(true);
+        view.loadUrl("http://www.instagram.com");
     }
 }
