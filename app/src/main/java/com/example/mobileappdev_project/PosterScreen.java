@@ -24,5 +24,12 @@ public class PosterScreen extends AppCompatActivity {
             }
         });
 
+       ImageButton ig = (ImageButton) findViewById(R.id.btnInstagram);
+        ig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PosterScreen.this,WebViewIG.class));
+            }
+        });
     }
 }

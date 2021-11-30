@@ -19,6 +19,9 @@
         <activity
             android:name=".SwipePembayaran1"
             android:exported="true" />
+        <activity    
+            android:name=".WebViewIG"
+            android:exported="false" />
         <activity
             android:name=".CustomMaps"
             android:exported="true" />
