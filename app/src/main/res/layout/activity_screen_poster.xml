@@ -148,11 +148,11 @@
         android:id="@+id/btnInstagram"
         android:layout_width="56dp"
         android:layout_height="46dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="-10dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/imageView20"
-        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView14"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/iggg" />
