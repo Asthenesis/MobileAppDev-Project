@@ -104,16 +104,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView33"
         app:layout_constraintVertical_bias="0.33" />
 
-    <ImageButton
-        android:id="@+id/nexthome_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView32"
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="227dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="56dp"
+        android:text="Login"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView35"
-        app:layout_constraintVertical_bias="0.308"
-        app:srcCompat="@drawable/button_login" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
