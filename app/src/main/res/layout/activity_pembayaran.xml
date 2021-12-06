@@ -10,14 +10,14 @@
         android:id="@+id/oyt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/secular_one"
         android:text="Order Your Ticket"
         android:textSize="9pt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView51" />
 
     <ImageView
         android:id="@+id/imageView47"
@@ -55,6 +55,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView48" />
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="64dp"
+        android:fontFamily="@font/secular_one"
+        android:text="Jumlah Ticket"
+        android:textSize="6pt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView48" />
+
     <ImageView
         android:id="@+id/imageView49"
         android:layout_width="wrap_content"
@@ -65,13 +78,65 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/group_58" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="166dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="68dp"
+    <EditText
+        android:id="@+id/edtJumlah"
+        android:layout_width="141dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toEndOf="@+id/imageView49"
         app:layout_constraintTop_toBottomOf="@+id/imageView48" />
+
+    <ImageView
+        android:id="@+id/imageView50"
+        android:layout_width="308dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView49"
+        app:srcCompat="@drawable/section" />
+
+    <ImageView
+        android:id="@+id/imageView51"
+        android:layout_width="425dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="-25dp"
+        android:layout_marginEnd="-10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/asd" />
+
+    <ImageButton
+        android:id="@+id/OrderID"
+        android:layout_width="328dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="60dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/book" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="327dp"
+        android:layout_height="41dp"
+        android:fontFamily="@font/secular_one"
+        android:text="Dengan menekan tombol order, anda menyetujui syarat dan ketentuan yang berlaku"
+        app:layout_constraintBottom_toTopOf="@+id/OrderID"
+        android:textStyle="bold"
+        android:textSize="7pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView50"
+        app:layout_constraintVertical_bias="0.43" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
