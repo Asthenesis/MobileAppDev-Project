@@ -26,7 +26,13 @@ public class EditPembayaran extends AppCompatActivity {
         sectionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Pembayaran.class));
+                String jenistiket = "Section A";
+                double hargatiket = 399000;
+                Intent i = new Intent(getApplicationContext(),Pembayaran.class);
+                i.putExtra("jenistiket",jenistiket);
+                i.putExtra("hargatiket",hargatiket);
+                startActivity(i);
+
             }
         });
 
