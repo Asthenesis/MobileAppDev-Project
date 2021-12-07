@@ -30,12 +30,13 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;
     private String email, password;
-    private String URL = "http://192.168.1.7/login2.php";
+    private String URL = "http://192.168.1.5/login2.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
         email = password = "";
         etEmail = findViewById(R.id.edtEmail);
         etPassword = findViewById(R.id.edtPassword);

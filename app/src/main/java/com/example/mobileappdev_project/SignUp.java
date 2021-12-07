@@ -35,13 +35,14 @@ public class SignUp extends AppCompatActivity {
     private EditText  etEmail, etPassword, etReenterPassword;
 
     private ImageButton btnRegister;
-    private String URL = "http://192.168.1.7/register2.php";
+    private String URL = "http://192.168.1.5/register2.php";
     private String name, email, password, reenterPassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        getSupportActionBar().hide();
 
         etEmail = findViewById(R.id.txtEmail);
         etPassword = findViewById(R.id.txtPassword);
