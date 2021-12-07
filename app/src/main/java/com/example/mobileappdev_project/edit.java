@@ -20,6 +20,7 @@ public class edit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+        getSupportActionBar().hide();
         this.setTitle("Edit Barang");
         final EditText edtNama = (EditText) findViewById(R.id.edtNama);
         final EditText edtKonten = findViewById(R.id.edtKonten);

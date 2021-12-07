@@ -16,6 +16,7 @@ public class tambah extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah);
+        getSupportActionBar().hide();
         this.setTitle("Tambah Notes");
 
         final EditText edtNama = (EditText)findViewById(R.id.edtNama);
