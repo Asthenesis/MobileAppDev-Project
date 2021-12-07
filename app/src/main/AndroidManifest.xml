@@ -8,24 +8,39 @@
     -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:networkSecurityConfig="@xml/network_security_config"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.MobileAppDevProject">
+        android:theme="@style/Theme.MobileAppDevProject"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".edit"
+            android:exported="true" />
+        <activity
+            android:name=".tambah"
+            android:exported="true" />
+        <activity
+            android:name=".BookmarkReview"
+            android:exported="true" />
+        <activity
+            android:name=".FragmentYoutube"
+            android:exported="true" />
+        <activity
+            android:name=".FragmentPoster"
+            android:exported="true" />
+        <activity
+            android:name=".FragmentIG"
+            android:exported="true" />
         <activity
             android:name=".SwipePembayaran1"
             android:exported="true" />
-        <activity    
+        <activity
             android:name=".WebViewIG"
             android:exported="false" />
         <activity
@@ -99,7 +114,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
 
 </manifest>

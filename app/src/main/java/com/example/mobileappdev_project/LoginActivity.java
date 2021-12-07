@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText tombolPassword;
     String uEmail, uPassword;
     private static final String TAG_MAHASISWA = "data";
-    String url_kirim_data = "http://192.168.1.5/Login.php";
+    String url_kirim_data = "http://lockyourticket.000webhostapp.com/Login.php";
 
 //    void kirim_data(){
 //        txtEmail = edtEmail.getText().toString();

@@ -28,8 +28,18 @@ public class PosterScreen extends AppCompatActivity {
         ig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PosterScreen.this,WebViewIG.class));
+                startActivity(new Intent(getApplicationContext(), WebViewIG.class));
             }
         });
+
+        ImageButton btnBookmark = (ImageButton)findViewById(R.id.btnBookmark);
+
+        btnBookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PosterScreen.this, BookmarkReview.class));
+            }
+        });
+
     }
 }
