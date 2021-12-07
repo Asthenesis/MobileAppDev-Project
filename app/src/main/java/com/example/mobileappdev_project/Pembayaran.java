@@ -25,8 +25,10 @@ import java.util.Map;
 
 public class Pembayaran extends AppCompatActivity {
  EditText edtOrder;
- int jumlahtiket;
- int hargatiket = 399000;
+double jumlahtiket;
+double hargatiket = 399000;
+String jumlaht;
+String url_add_order = "http://192.168.1.7/OrderTiket.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +40,25 @@ public class Pembayaran extends AppCompatActivity {
 
         edtOrder = findViewById(R.id.edtJumlah);
 
-       /* order.setOnClickListener(new View.OnClickListener() {
+
+
+        Intent i = getIntent();
+        String jenistiket = i.getStringExtra("jenistiket");
+
+
+
+
+       order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jumlahtiket = Integer.parseInt(edtOrder.getText().toString());
+                jumlaht = edtOrder.getText().toString();
+
+                double jt = Double.parseDouble(jumlaht);
+                double totalharga = jt*hargatiket;
 
                 RequestQueue queue = Volley.newRequestQueue(Pembayaran.this);
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url_add_user, new Response.Listener<String>() {
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url_add_order, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
@@ -74,8 +87,9 @@ public class Pembayaran extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<>();
-                        params.put("jumlahtiket", String.valueOf(jumlahtiket));
-
+                        params.put("JenisTiket",jenistiket);
+                        params.put("JumlahTiket", String.valueOf(jt));
+                        params.put("TotalHarga",String.valueOf(totalharga));
                         return params;
                     }
 
@@ -83,6 +97,8 @@ public class Pembayaran extends AppCompatActivity {
                     public Map<String, String> getHeaders() throws AuthFailureError {
                         Map<String, String> params = new HashMap<>();
                         params.put("Content-Type", "application/x-www-form-urlencoded");
+
+
                         return params;
                     }
                 };
@@ -91,6 +107,6 @@ public class Pembayaran extends AppCompatActivity {
             }
         });
 
-*/
+
     }
 }
