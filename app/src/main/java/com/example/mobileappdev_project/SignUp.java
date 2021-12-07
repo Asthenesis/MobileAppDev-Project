@@ -1,5 +1,6 @@
 package com.example.mobileappdev_project;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -30,78 +32,65 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SignUp extends AppCompatActivity {
-EditText edtUser,edtPassword,edtEmail;
-String url_add_user ="http://lockyourticket.000webhostapp.com/addUser.php";
-String email,username,password;
+    private EditText  etEmail, etPassword, etReenterPassword;
 
+    private ImageButton btnRegister;
+    private String URL = "http://192.168.1.7/register2.php";
+    private String name, email, password, reenterPassword;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        getSupportActionBar().hide();
 
-        ImageButton btn = (ImageButton)findViewById(R.id.next_btn);
+        etEmail = findViewById(R.id.txtEmail);
+        etPassword = findViewById(R.id.txtPassword);
+        etReenterPassword = findViewById(R.id.txtConfirmPass);
 
-        edtUser = (EditText) findViewById(R.id.txtUser);
-        edtEmail = (EditText) findViewById(R.id.txtEmail);
-        edtPassword = (EditText) findViewById(R.id.txtPassword);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignUp.this, WelcomeActivity.class));
-                email = edtEmail.getText().toString();
-                username = edtUser.getText().toString();
-                password = edtPassword.getText().toString();
-                RequestQueue queue = Volley.newRequestQueue(SignUp.this);
-
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url_add_user, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jObj = new JSONObject(response);
-                            int sukses = jObj.getInt("success");
-                            if (sukses == 1) {
-                                Toast.makeText(SignUp.this, "User Berhasil Registrasi", Toast.LENGTH_SHORT).show();
-                                finish();
-                            } else {
-                                Toast.makeText(SignUp.this, "Gagal Registrasi, silahkan coba lagi", Toast.LENGTH_SHORT).show();
-                            }
-                           // progressBar.setVisibility(View.GONE);
-                        } catch (Exception ex) {
-                            Log.e("Error", ex.toString());
-                            //progressBar.setVisibility(View.GONE);
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("Error", error.getMessage());
-                        Toast.makeText(SignUp.this, "silahkan cek koneksi internet anda", Toast.LENGTH_SHORT).show();
-                        //progressBar.setVisibility(View.GONE);
-                    }
-                }) {
-                    @Override
-                    protected Map<String, String> getParams() {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("username", username);
-                        params.put("password",password);
-                        params.put("email", email);
-                        return params;
-                    }
-
-                    @Override
-                    public Map<String, String> getHeaders() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("Content-Type", "application/x-www-form-urlencoded");
-                        return params;
-                    }
-                };
-                queue.getCache().clear();
-                queue.add(stringRequest);
-            }
-        });
-            }
-
+        btnRegister = findViewById(R.id.next_btn);
+        email = password = reenterPassword = "";
     }
+
+    public void save(View view) {
+
+        email = etEmail.getText().toString().trim();
+        password = etPassword.getText().toString().trim();
+        reenterPassword = etReenterPassword.getText().toString().trim();
+        if(!password.equals(reenterPassword)){
+            Toast.makeText(this, "Password Mismatch", Toast.LENGTH_SHORT).show();
+        }
+        else if(!email.equals("") && !password.equals("")){
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    if (response.equals("success")) {
+                        Toast.makeText(SignUp.this, "Register Berhasil", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(SignUp.this, LoginActivity.class);
+                        startActivity(i);
+                        btnRegister.setClickable(false);
+                    } else if (response.equals("failure")) {
+                        Toast.makeText(SignUp.this, "Register gagal, silahkan coba lagi", Toast.LENGTH_SHORT).show();               }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+                }
+            }){
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> data = new HashMap<>();
+
+                    data.put("email", email);
+                    data.put("password", password);
+                    return data;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            requestQueue.add(stringRequest);
+        }
+    }
+
+
+}
+

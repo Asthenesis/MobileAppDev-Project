@@ -78,17 +78,15 @@
 
     <EditText
         android:id="@+id/edtEmail"
-        android:layout_width="255dp"
-        android:layout_height="43dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.318"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView33"
-        app:layout_constraintVertical_bias="0.078" />
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView34"
+        app:layout_constraintEnd_toEndOf="@+id/imageView34"
+        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintStart_toStartOf="@+id/imageView34"
+        app:layout_constraintTop_toTopOf="@+id/imageView34" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -105,11 +103,11 @@
         app:layout_constraintVertical_bias="0.33" />
 
     <Button
-        android:id="@+id/btnLogin"
         android:layout_width="227dp"
         android:layout_height="57dp"
         android:layout_marginTop="56dp"
         android:text="Login"
+        android:onClick="Login"
         app:backgroundTint="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"

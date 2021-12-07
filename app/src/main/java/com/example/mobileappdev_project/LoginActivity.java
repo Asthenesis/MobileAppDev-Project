@@ -28,151 +28,63 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText tombolEmail;
-    EditText tombolPassword;
-    String uEmail, uPassword;
-    private static final String TAG_MAHASISWA = "data";
-    String url_kirim_data = "http://lockyourticket.000webhostapp.com/Login.php";
+    private EditText etEmail, etPassword;
+    private String email, password;
+    private String URL = "http://192.168.1.7/login2.php";
 
-//    void kirim_data(){
-//        txtEmail = edtEmail.getText().toString();
-//        txtPassword = edtPassword.getText().toString();
-//        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_kirim_data, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                try {
-//                    JSONObject jObj = new JSONObject(response);
-//                    int sukses = jObj.getInt("success");
-//                    if (sukses == 1) {
-//                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-//                        startActivity(i);
-//                        Toast.makeText(LoginActivity.this, "Data pengguna berhasil login", Toast.LENGTH_SHORT).show();
-//                        finish();
-//                    } else {
-//                        Toast.makeText(LoginActivity.this, "Data pengguna gagal disimpan", Toast.LENGTH_SHORT).show();
-//                    }
-//                } catch (Exception ex) {
-//                    Log.e("Error", ex.toString());
-//                }
-//            }
-//        },
-//                new Response.ErrorListener(){
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Log.e("Error", error.getMessage());
-//                        Toast.makeText(LoginActivity.this, "silahkan cek koneksi internet anda", Toast.LENGTH_SHORT).show();
-//                    }
-//                }) {
-//            protected Map<String, String> getParams() {
-//                Map<String, String> params = new HashMap<>();
-//                params.put("email", txtEmail);
-//                params.put("password", txtPassword);
-//                return params;
-//            }
-//            @Override
-//            public Map<String, String> getHeaders() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<>();
-//                params.put("Content-Type", "application/x-www-form-urlencoded");
-//                return params;
-//            }
-//        };
-//
-//        queue.getCache().clear();
-//        queue.add(stringRequest);
-//
-//    }
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_login);
-//        getSupportActionBar().hide();
-//        edtEmail = (EditText) findViewById(R.id.edtEmail);
-//        edtPassword = (EditText) findViewById(R.id.edtPassword);
-//
-//        Button btnLogin = (Button) findViewById(R.id.btnLogin);
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                kirim_data();
-//            }
-//        });
-//
-//    }
-//
-//
-//}
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_login);
-    getSupportActionBar().hide();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        email = password = "";
+        etEmail = findViewById(R.id.edtEmail);
+        etPassword = findViewById(R.id.edtPassword);
+    }
 
-    Button btn = (Button)findViewById(R.id.btnLogin);
-
-
-    tombolEmail = (EditText) findViewById(R.id.edtEmail);
-    tombolPassword = (EditText) findViewById(R.id.edtPassword);
-
-    btn.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            uEmail = tombolEmail.getText().toString();
-
-            uPassword = tombolPassword.getText().toString();
-            RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url_kirim_data, new Response.Listener<String>() {
+    public void Login(View view) {
+        email = etEmail.getText().toString().trim();
+        password = etPassword.getText().toString().trim();
+        if(!email.equals("") && !password.equals("")){
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    try {
-                        JSONObject jObj = new JSONObject(response);
-                        int sukses = jObj.getInt("success");
-                        if (sukses == 1) {
-//                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            Toast.makeText(LoginActivity.this, "User Berhasil Registrasi", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Gagal Registrasi, silahkan coba lagi", Toast.LENGTH_SHORT).show();
-                        }
-                        // progressBar.setVisibility(View.GONE);
-                    } catch (Exception ex) {
-                        Log.e("Error", ex.toString());
-                        //progressBar.setVisibility(View.GONE);
+                    Log.d("res", response);
+                    if (response.equals("success")) {
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else if (response.equals("failure")) {
+                        Toast.makeText(LoginActivity.this, "Invalid Login Id/Password", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.e("Error", error.getMessage());
-                    Toast.makeText(LoginActivity.this, "silahkan cek koneksi internet anda", Toast.LENGTH_SHORT).show();
-                    //progressBar.setVisibility(View.GONE);
+                    Toast.makeText(LoginActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
                 }
-            }) {
+            }){
                 @Override
-                protected Map<String, String> getParams() {
-                    Map<String, String> params = new HashMap<>();
-
-                    params.put("password",uPassword);
-                    params.put("email", uEmail);
-                    return params;
-                }
-
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<>();
-                    params.put("Content-Type", "application/x-www-form-urlencoded");
-                    return params;
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> data = new HashMap<>();
+                    data.put("email", email);
+                    data.put("password", password);
+                    return data;
                 }
             };
-            queue.getCache().clear();
-            queue.add(stringRequest);
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            requestQueue.add(stringRequest);
+        }else{
+            Toast.makeText(this, "Fields can not be empty!", Toast.LENGTH_SHORT).show();
         }
-    });
+    }
+    public void SignUp(View view) {
+        Intent intent = new Intent(this, SignUp.class);
+        startActivity(intent);
+        finish();
+    }
+
 }
-}
+
 
 /*public class LoginActivity extends AppCompatActivity {
 
