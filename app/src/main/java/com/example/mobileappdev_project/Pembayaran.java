@@ -24,11 +24,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Pembayaran extends AppCompatActivity {
- EditText edtOrder;
-double jumlahtiket;
-double hargatiket = 399000;
-String jumlaht;
-String url_add_order = "http://192.168.1.7/OrderTiket.php";
+    EditText edtOrder;
+    double jumlahtiket;
+    double hargatiket = 399000;
+    String jumlaht;
+    String url_add_order = "http://192.168.1.7/OrderTiket.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +42,50 @@ String url_add_order = "http://192.168.1.7/OrderTiket.php";
 
 
 
-        Intent i = getIntent();
-        String jenistiket = i.getStringExtra("jenistiket");
+
+    }
+        public void Order(View view) {
+            jumlaht = edtOrder.getText().toString();
+            Intent i = getIntent();
+            String jenistiket = i.getStringExtra("jenistiket");
+            double jt = Double.parseDouble(jumlaht);
+            double totalharga = jt*hargatiket;
+            if(jumlaht.equals("")){
+                Toast.makeText(this, "Password Mismatch", Toast.LENGTH_SHORT).show();
+            }
+            else if(!jumlaht.equals("") ){
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url_add_order, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (response.equals("success")) {
+                            Toast.makeText(Pembayaran.this, "Order berhasil, Silahkan Konfirmasi Pembayaran", Toast.LENGTH_SHORT).show();
+
+                        } else if (response.equals("failure")) {
+                            Toast.makeText(Pembayaran.this, "Order gagal, silahkan coba lagi", Toast.LENGTH_SHORT).show();               }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+                    }
+                }){
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> data = new HashMap<>();
+
+                        data.put("JenisTiket",jenistiket);
+                        data.put("JumlahTiket", String.valueOf(jt));
+                        data.put("TotalHarga",String.valueOf(totalharga));
+                        return data;
+                    }
+                };
+                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                requestQueue.add(stringRequest);
+            }
+        }
 
 
-
-
-       order.setOnClickListener(new View.OnClickListener() {
+      /* order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 jumlaht = edtOrder.getText().toString();
@@ -108,5 +145,5 @@ String url_add_order = "http://192.168.1.7/OrderTiket.php";
         });
 
 
+    }*/
     }
-}
