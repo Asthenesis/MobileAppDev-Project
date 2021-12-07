@@ -17,9 +17,9 @@ public class tambah extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah);
         getSupportActionBar().hide();
-        this.setTitle("Tambah Notes");
 
-        final EditText edtNama = (EditText)findViewById(R.id.edtNama);
+
+        final EditText edtNama = (EditText)findViewById(R.id.edtJumlahTiket);
         final EditText edtKonten = (EditText)findViewById(R.id.edtKonten);
 
         Button btnReset = (Button)findViewById(R.id.btnReset);
@@ -45,7 +45,7 @@ public class tambah extends AppCompatActivity {
             }else {
                 dbHandler.createNotes(bNama, bKonten);
 
-                Toast.makeText(tambah.this, "Notes berhasil ditambahkan", Toast.LENGTH_LONG).show();
+                Toast.makeText(tambah.this, "Bookmark berhasil ditambahkan", Toast.LENGTH_LONG).show();
                 edtNama.setText("");
                 edtKonten.setText("");
 

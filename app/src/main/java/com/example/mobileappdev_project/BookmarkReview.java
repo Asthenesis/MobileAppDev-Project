@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -60,6 +61,14 @@ public class BookmarkReview extends ListActivity implements AdapterView.OnItemLo
             }
         });
 
+        ImageButton btnkembali = (ImageButton) findViewById(R.id.btnKembali);
+        btnkembali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),PosterScreen.class));
+            }
+        });
+
     }
 
     @Override
@@ -93,8 +102,8 @@ public class BookmarkReview extends ListActivity implements AdapterView.OnItemLo
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder konfirm = new AlertDialog.Builder(context);
-                konfirm.setTitle("Hapus Notes");
-                konfirm.setMessage("Anda yakin akan menghapus notes ini?");
+                konfirm.setTitle("Hapus Bookmark");
+                konfirm.setMessage("Anda yakin akan menghapus bookmark ini?");
                 konfirm.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -103,7 +112,7 @@ public class BookmarkReview extends ListActivity implements AdapterView.OnItemLo
                         finish();
                         startActivity(getIntent());
 
-                        Toast.makeText(BookmarkReview.this, "Notes berhasil dihapus",Toast.LENGTH_LONG).show();
+                        Toast.makeText(BookmarkReview.this, "Bookmark berhasil dihapus",Toast.LENGTH_LONG).show();
                     }
                 });
                 konfirm.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

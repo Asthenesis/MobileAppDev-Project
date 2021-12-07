@@ -21,6 +21,9 @@
         android:theme="@style/Theme.MobileAppDevProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DeleteTiket"
+            android:exported="true" />
+        <activity
             android:name=".edit"
             android:exported="true" />
         <activity

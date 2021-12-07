@@ -28,7 +28,7 @@ public class Pembayaran extends AppCompatActivity {
     double jumlahtiket;
     double hargatiket = 399000;
     String jumlaht;
-    String url_add_order = "http://192.168.1.7/OrderTiket.php";
+    String url_add_order = "http://192.168.1.5/OrderTiket.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

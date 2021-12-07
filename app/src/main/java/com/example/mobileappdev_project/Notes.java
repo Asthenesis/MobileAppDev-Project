@@ -42,7 +42,7 @@ public class Notes {
     //Method override yang dipakai untuk mengubah objek Notes menjadi String
     @Override
     public String toString(){
-        return "Judul Note\t\t\t\t: " + judul_notes + "\nKonten Note \t: " + konten_notes;
+        return "Judul Bookmark\t\t\t\t: " + judul_notes + "\nDeskripsi Bookmark \t: " + konten_notes;
     }
 
 }

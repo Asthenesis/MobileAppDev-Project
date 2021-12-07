@@ -41,5 +41,13 @@ public class PosterScreen extends AppCompatActivity {
             }
         });
 
+        ImageButton btnback = (ImageButton) findViewById(R.id.btnBack);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PosterScreen.this, MainActivity.class));
+            }
+        });
+
     }
 }

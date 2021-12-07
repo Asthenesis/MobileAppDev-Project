@@ -22,7 +22,7 @@ public class edit extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
         getSupportActionBar().hide();
         this.setTitle("Edit Barang");
-        final EditText edtNama = (EditText) findViewById(R.id.edtNama);
+        final EditText edtNama = (EditText) findViewById(R.id.edtJumlahTiket);
         final EditText edtKonten = findViewById(R.id.edtKonten);
 
 
@@ -43,7 +43,7 @@ public class edit extends AppCompatActivity {
         konten = bundle.getString("konten");
 
 
-        this.setTitle("Edit Barang ID : ");
+
         edtNama.setText(judulnotes);
         edtKonten.setText(konten);
 
@@ -57,7 +57,7 @@ public class edit extends AppCompatActivity {
                 barang.setKontenNotes(edtKonten.getText().toString());
 
                 dbHandler.updateNotes(barang);
-                Toast.makeText(edit.this, "Notes berhasil diedit", Toast.LENGTH_LONG).show();
+                Toast.makeText(edit.this, "Bookmark berhasil diedit", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(edit.this, BookmarkReview.class);
                 startActivity(i);
                 edit.this.finish();
