@@ -83,7 +83,7 @@ String email,username,password;
                     }
                 }) {
                     @Override
-                    protected Map<String, String> getParams() {
+                    protected Map<String, String> getParams() throws AuthFailureError{
                         Map<String, String> params = new HashMap<>();
                         params.put("username", username);
                         params.put("password",password);

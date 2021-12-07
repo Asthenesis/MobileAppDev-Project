@@ -26,6 +26,7 @@ import java.util.Map;
 public class Pembayaran extends AppCompatActivity {
  EditText edtOrder;
  int jumlahtiket;
+ int hargatiket = 399000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
