@@ -32,7 +32,7 @@ public class DeleteTiket extends AppCompatActivity {
     private static final String TAG_JENISTIKET="JenisTiket";
     private static final String TAG_JUMLAHTIKET="JumlahTiket";
     private static final String TAG_TOTAL_HARGA = "TotalHarga";
-    String orderID;
+    String orderid;
 
     Button btnHapus, btnBatal;
 
@@ -44,6 +44,9 @@ public class DeleteTiket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_tiket);
         getSupportActionBar().hide();
+
+        Intent i = getIntent();
+        orderid = i.getStringExtra("OrderID");
 
         btnBatal = (Button)findViewById(R.id.btnBatal);
 
@@ -79,7 +82,7 @@ public class DeleteTiket extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("OrderID", orderID);
+                params.put("OrderID", orderid);
                 return params;
             }
         };
@@ -123,7 +126,7 @@ public class DeleteTiket extends AppCompatActivity {
                             @Override
                             protected Map<String, String> getParams() {
                                 Map<String, String> params = new HashMap<>();
-                                params.put("OrderID", orderID);
+                                params.put("OrderID", orderid);
                                 return params;
                             }
 
